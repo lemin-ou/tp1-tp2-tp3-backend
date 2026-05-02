@@ -10,15 +10,19 @@ This repository contains the backend Flask application for TP2. It connects to a
     ```bash
     pip3 install -r requirements.txt
     ```
-4.  Set your environment variables to point to your RDS Endpoint and S3 bucket:
+4.  Set up your environment variables by copying `.env.sample` to `.env`:
     ```bash
-    export S3_BUCKET_NAME="student-avatars-bucket"
-    export DB_HOST="YOUR_RDS_ENDPOINT.amazonaws.com"
-    export DB_USER="db_user"
-    export DB_PASSWORD="db_password"
-    export DB_NAME="app_db"
+    cp .env.sample .env
     ```
-5.  Run the application on port 80 (requires sudo):
+5.  Edit the `.env` file to point to your RDS Endpoint and S3 bucket:
+    ```bash
+    S3_BUCKET_NAME="student-avatars-bucket"
+    DB_HOST="YOUR_RDS_ENDPOINT.amazonaws.com"
+    DB_USER="db_user"
+    DB_PASSWORD="db_password"
+    DB_NAME="app_db"
+    ```
+6.  Run the application on port 80 (requires sudo):
     ```bash
     sudo python3 app.py
     ```
