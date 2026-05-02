@@ -16,7 +16,13 @@ In this TP, we will abandon our EC2 and RDS instances and move to a fully Server
 **3. Create the Lambda Functions**
 * Create Function 1: `RegisterUser` (Python 3.9+). Attach the IAM role. Paste the code from `register_lambda.py`.
 * Create Function 2: `ListUsers` (Python 3.9+). Attach the IAM role. Paste the code from `list_lambda.py`.
-* *Environment Variables*: For both Lambdas, go to Configuration -> Environment variables. Add `S3_BUCKET_NAME` (e.g., `student-avatars-bucket`) and `DYNAMODB_TABLE` (`UsersTable`).
+* **ENVIRONMENT VARIABLES (Crucial Step):** Since our Lambda code no longer hardcodes configuration, you MUST add environment variables inside the AWS Lambda console. 
+  * Go to the **Configuration** tab for *each* Lambda function.
+  * Select **Environment variables** on the left menu.
+  * Click **Edit**, then **Add environment variable**.
+  * Add the following two variables:
+    * Key: `S3_BUCKET_NAME` | Value: `student-avatars-bucket`
+    * Key: `DYNAMODB_TABLE` | Value: `UsersTable`
 * *Important:* Ensure you click **Deploy** in the code source editor.
 
 **4. Configure API Gateway & CORS**
