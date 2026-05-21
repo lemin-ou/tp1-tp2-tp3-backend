@@ -1,3 +1,4 @@
+from botocore.config import Config
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -14,7 +15,7 @@ app = Flask(__name__)
 CORS(app) 
 
 # Uses IAM Instance Profile credentials automatically (no access keys needed)
-s3_client = boto3.client('s3') 
+s3_client = boto3.client('s3', config=Config(signature_version='s3v4')) 
 BUCKET_NAME = os.environ.get('S3_BUCKET_NAME', 'student-avatars-bucket')
 
 db_config = {
