@@ -15,7 +15,7 @@ app = Flask(__name__)
 CORS(app) 
 
 # Uses IAM Instance Profile credentials automatically (no access keys needed)
-s3_client = boto3.client('s3', config=Config(signature_version='s3v4', region_name=os.environ.get('AWS_REGION')) 
+s3_client = boto3.client('s3', config=Config(signature_version='s3v4', region_name=os.environ.get('AWS_REGION'))) 
 BUCKET_NAME = os.environ.get('S3_BUCKET_NAME', 'student-avatars-bucket')
 
 db_config = {
